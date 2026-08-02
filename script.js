@@ -28,3 +28,30 @@ const loading = setInterval(() => {
     }, 300);
   }
 }, 20);
+
+// Navbar Reveal
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    document.querySelector("header").classList.add("reveal-visible");
+
+    setTimeout(() => {
+      document.querySelector("h1").classList.add("reveal-visible");
+
+      setTimeout(() => {
+        document.querySelector(".hero-img").classList.add("reveal-visible");
+
+        setTimeout(() => {
+          document
+            .querySelector(".hero-content p")
+            .classList.add("reveal-visible");
+
+          setTimeout(() => {
+            document
+              .querySelector(".hero-content .social-list")
+              .classList.add("reveal-visible");
+          }, 220);
+        }, 300);
+      }, 300);
+    }, 350);
+  }, 2600);
+});
