@@ -294,6 +294,35 @@ h2 {
   background-position: center;
   background-size: cover;
   position: relative;
+  overflow: visible;
+  cursor: pointer;
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.45s ease;
+}
+
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  transition:
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.45s ease;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.card:hover {
+  transform: translateY(-12px);
+}
+
+.card:hover .card-img {
+  transform: scale(1.08);
+  filter: brightness(1.04);
+  box-shadow:
+    0 25px 55px rgba(0, 0, 0, 0.18),
+    0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 /* COFFEE CARD REVEAL */
@@ -309,45 +338,6 @@ h2 {
 .card.reveal-visible {
   opacity: 1;
   transform: translateY(0) scale(1);
-}
-
-/* 1st Row */
-#first-container .card:nth-child(1) {
-  background-image: url(./assets/latte.jpg);
-}
-
-#first-container .card:nth-child(2) {
-  background-image: url(./assets/mocha.jpeg);
-}
-
-#first-container .card:nth-child(3) {
-  background-image: url(./assets/affogato.jpg);
-}
-
-/* 2nd Row */
-#second-container .card:nth-child(1) {
-  background-image: url(./assets/capuccino.jpg);
-}
-
-#second-container .card:nth-child(2) {
-  background-image: url(./assets/americano.jpg);
-}
-
-#second-container .card:nth-child(3) {
-  background-image: url(./assets/flat\ white.jpg);
-}
-
-/* 3rd Row */
-#third-container .card:nth-child(1) {
-  background-image: url(./assets/frappe.jpeg);
-}
-
-#third-container .card:nth-child(2) {
-  background-image: url(./assets/cartedo.jpg);
-}
-
-#third-container .card:nth-child(3) {
-  background-image: url(./assets/espresso.jpeg);
 }
 
 .card::before {
@@ -370,16 +360,19 @@ h2 {
 
 .placement {
   position: absolute;
-  bottom: 15px;
-  right: 15px;
+  right: -8px;
+  bottom: 35px;
+  z-index: 20;
   opacity: 0;
-  visibility: hidden;
-  transition: all 0.2s ease-in-out;
+  transform: scale(0.5);
+  transition:
+    opacity 0.35s ease,
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .card:hover .placement {
   opacity: 1;
-  visibility: visible;
+  transform: scale(1);
 }
 
 /* Best Coffee */
