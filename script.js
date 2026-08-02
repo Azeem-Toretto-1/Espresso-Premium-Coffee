@@ -61,3 +61,36 @@ window.addEventListener("load", () => {
     }, 350);
   }, 2600);
 });
+
+// OUR COFFEE REVEAL
+const coffeeSection = document.querySelector(".coffee-intro");
+
+const coffeeObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+
+      const image = entry.target.querySelector(".img-part");
+      const text = entry.target.querySelector("p");
+      const heading = document.querySelector(".working-section h2");
+
+      image.classList.add("reveal-visible");
+
+      setTimeout(() => {
+        text.classList.add("reveal-visible");
+      }, 220);
+
+      setTimeout(() => {
+        heading.classList.add("reveal-visible");
+      }, 450);
+
+      coffeeObserver.unobserve(entry.target);
+    });
+  },
+
+  {
+    threshold: 0.35,
+  },
+);
+
+coffeeObserver.observe(coffeeSection);

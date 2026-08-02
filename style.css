@@ -589,6 +589,35 @@ input[type="submit"] {
   transform: translate(0, 0) scale(1);
 }
 
+/* OUR COFFEE REVEAL */
+.coffee-intro .img-part,
+.coffee-intro p,
+.working-section h2 {
+  opacity: 0;
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.coffee-intro .img-part {
+  transform: translateX(-60px);
+}
+
+.coffee-intro p {
+  transform: translateX(60px);
+}
+
+.working-section h2 {
+  transform: translateY(40px);
+}
+
+.coffee-intro .img-part.reveal-visible,
+.coffee-intro p.reveal-visible,
+.working-section h2.reveal-visible {
+  opacity: 1;
+  transform: translate(0);
+}
+
 /* Marquee Animation */
 @keyframes marqueeMove {
   from {
