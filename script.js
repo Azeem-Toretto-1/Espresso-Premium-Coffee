@@ -94,3 +94,32 @@ const coffeeObserver = new IntersectionObserver(
 );
 
 coffeeObserver.observe(coffeeSection);
+
+// COFFEE CARDS REVEAL
+const cardRows = document.querySelectorAll(".card-container");
+
+const cardObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+
+      const cards = entry.target.querySelectorAll(".card");
+
+      cards.forEach((card, index) => {
+        setTimeout(() => {
+          card.classList.add("reveal-visible");
+        }, index * 180);
+      });
+
+      cardObserver.unobserve(entry.target);
+    });
+  },
+
+  {
+    threshold: 0.35,
+  },
+);
+
+cardRows.forEach((row) => {
+  cardObserver.observe(row);
+});
