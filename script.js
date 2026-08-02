@@ -49,6 +49,12 @@ window.addEventListener("load", () => {
             document
               .querySelector(".hero-content .social-list")
               .classList.add("reveal-visible");
+
+            setTimeout(() => {
+              document
+                .querySelector(".headline")
+                .classList.add("reveal-visible");
+            }, 250);
           }, 220);
         }, 300);
       }, 300);

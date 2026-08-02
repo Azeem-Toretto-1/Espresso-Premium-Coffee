@@ -223,19 +223,34 @@ p {
 }
 
 .headline {
-  background: var(--orangi-yellow);
   position: absolute;
   left: 0;
   bottom: 0;
   width: 100%;
-  z-index: 5;
-  white-space: nowrap;
   overflow: hidden;
-  padding: 1.1rem;
+  background: var(--orangi-yellow);
+  padding: 1rem 0;
+  z-index: 10;
+  display: flex;
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.headline.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .headline-content {
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  white-space: nowrap;
+  animation: marqueeMove 18s linear infinite;
+  will-change: transform;
 }
 
 h4 {
@@ -572,6 +587,17 @@ input[type="submit"] {
 .reveal-visible {
   opacity: 1;
   transform: translate(0, 0) scale(1);
+}
+
+/* Marquee Animation */
+@keyframes marqueeMove {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
 }
 
 /* Media Queries */
