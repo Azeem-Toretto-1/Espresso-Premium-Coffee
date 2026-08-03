@@ -1,10 +1,47 @@
 const navList = document.querySelector("#navList");
-
 const hamburger = document.querySelector("#hamburger");
+
+// SHOPPING CART
+let cart = [];
+let currentProduct = null;
+const cartCount = document.querySelector(".cart-count");
+const addCartBtn = document.querySelector(".modal-btn");
+const cartIcon = document.querySelector(".cart-icon");
+const cartSidebar = document.querySelector(".cart-sidebar");
+const cartOverlay = document.querySelector(".cart-overlay");
+const closeCart = document.querySelector(".close-cart");
 
 hamburger.addEventListener("click", () => {
   navList.classList.toggle("navlist-active");
 });
+
+addCartBtn.addEventListener("click", () => {
+  if (!currentProduct) return;
+
+  const existingProduct = cart.find((item) => item.id === currentProduct.id);
+
+  if (existingProduct) {
+    existingProduct.quantity++;
+  } else {
+    cart.push({
+      ...currentProduct,
+      quantity: 1,
+    });
+  }
+
+  updateCartBadge();
+  renderCart();
+
+  console.log(cart);
+});
+
+function updateCartBadge() {
+  const totalItems = cart.reduce((total, item) => {
+    return total + item.quantity;
+  }, 0);
+
+  cartCount.textContent = totalItems;
+}
 
 // Premium Loader
 const loader = document.querySelector(".loader");
@@ -321,9 +358,15 @@ coffeeCards.forEach((card) => {
     const coffeeType = card.dataset.type;
     const coffee = coffeeData[coffeeType];
 
+    currentProduct = {
+      id: card.dataset.id,
+      name: card.dataset.name,
+      price: Number(card.dataset.price),
+      image: card.dataset.image,
+    };
+
     modalImage.src = coffee.image;
     modalImage.alt = coffee.title;
-
     modalTitle.textContent = coffee.title;
     modalDescription.textContent = coffee.description;
     modalPrice.textContent = coffee.price;
@@ -434,3 +477,105 @@ magneticButtons.forEach((button) => {
     button.style.transform = "translate(0,0)";
   });
 });
+
+function openCart() {
+  cartSidebar.classList.add("active");
+  cartOverlay.classList.add("active");
+}
+
+function closeCartSidebar() {
+  cartSidebar.classList.remove("active");
+  cartOverlay.classList.remove("active");
+}
+
+cartIcon.addEventListener("click", openCart);
+closeCart.addEventListener("click", closeCartSidebar);
+cartOverlay.addEventListener("click", closeCartSidebar);
+
+function renderCart() {
+  const cartItems = document.querySelector(".cart-items");
+
+  cartItems.innerHTML = "";
+
+  if (cart.length === 0) {
+    cartItems.innerHTML = `
+      <div class="empty-cart">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <h3>Your cart is empty</h3>
+        <p>Add your favorite coffee ☕</p>
+      </div>
+    `;
+
+    document.getElementById("cartTotal").textContent = "$0.00";
+
+    return;
+  }
+
+  cart.forEach((item) => {
+    cartItems.innerHTML += `
+<div class="cart-item">
+
+    <img src="${item.image}" alt="${item.name}">
+
+    <div class="cart-item-info">
+
+        <h4>${item.name}</h4>
+
+        <p>$${item.price.toFixed(2)}</p>
+
+        <div class="quantity-box">
+
+            <button class="minus-btn" data-id="${item.id}">
+                -
+            </button>
+
+            <span>${item.quantity}</span>
+
+            <button class="plus-btn" data-id="${item.id}">
+                +
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+`;
+  });
+
+  document.querySelectorAll(".plus-btn").forEach((button) => {
+    button.addEventListener("click", () => {
+      const product = cart.find((item) => item.id === button.dataset.id);
+
+      product.quantity++;
+
+      updateCartBadge();
+      renderCart();
+    });
+  });
+
+  document.querySelectorAll(".minus-btn").forEach((button) => {
+    button.addEventListener("click", () => {
+      const product = cart.find((item) => item.id === button.dataset.id);
+
+      if (product.quantity > 1) {
+        product.quantity--;
+      } else {
+        const index = cart.findIndex((item) => item.id === button.dataset.id);
+
+        cart.splice(index, 1);
+      }
+
+      updateCartBadge();
+      renderCart();
+    });
+  });
+
+  const total = cart.reduce((sum, item) => {
+    return sum + item.price * item.quantity;
+  }, 0);
+
+  document.getElementById("cartTotal").textContent = `$${total.toFixed(2)}`;
+}
+
+renderCart();

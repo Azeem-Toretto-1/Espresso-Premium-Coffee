@@ -81,11 +81,36 @@ nav {
 .social-list {
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 .navlist,
 .action-list {
   gap: 2.5rem;
+}
+
+.cart-icon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart-count {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--orangi-yellow);
+  color: var(--light-greenish);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  transition: 0.3s ease;
 }
 
 .links {
@@ -889,6 +914,9 @@ footer .icons-link:hover {
   transition:
     transform 0.25s ease,
     box-shadow 0.25s ease;
+  border: none;
+  outline: none;
+  cursor: pointer;
 }
 
 .modal-btn:hover {
@@ -939,6 +967,216 @@ footer .icons-link:hover {
   .modal-content {
     padding: 2rem;
   }
+}
+
+/* CART SIDEBAR */
+.cart-sidebar {
+  position: fixed;
+  top: 0;
+  right: -420px;
+  width: 400px;
+  max-width: 100%;
+  height: 100vh;
+  background: var(--soft-peach);
+  z-index: 9998;
+  display: flex;
+  flex-direction: column;
+  transition: right 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: -20px 0 60px rgba(0, 0, 0, 0.25);
+}
+
+.cart-sidebar.active {
+  right: 0;
+}
+
+.cart-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(5px);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.35s;
+  z-index: 9997;
+}
+
+.cart-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.cart-header h2 {
+  color: var(--light-greenish);
+  font-size: 2rem;
+  text-align: left;
+}
+
+.close-cart {
+  width: 45px;
+  height: 45px;
+  border: none;
+  border-radius: 50%;
+  background: var(--orangi-yellow);
+  color: var(--light-greenish);
+  font-size: 1.6rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.close-cart:hover {
+  transform: rotate(90deg);
+}
+
+.cart-items {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.5rem;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: var(--pure-white);
+  border-radius: 1.2rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.cart-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.12);
+}
+
+.cart-item img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.cart-item-info {
+  flex: 1;
+}
+
+.cart-item-info h4 {
+  color: var(--light-greenish);
+  font-size: 1.1rem;
+  margin-bottom: 0.4rem;
+}
+
+.cart-item-info p {
+  text-align: left;
+  color: #666;
+  font-weight: 600;
+}
+
+.cart-footer {
+  padding: 1.5rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.cart-total {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: var(--light-greenish);
+}
+
+.quantity-box {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-top: 0.8rem;
+}
+
+.quantity-box button {
+  width: 34px;
+  height: 34px;
+  border: none;
+  border-radius: 10px;
+  background: var(--green-clr);
+  color: var(--peach-clr);
+  font-size: 1.15rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quantity-box button:hover {
+  background: #1f5b47;
+  transform: translateY(-2px);
+}
+
+.quantity-box button:active {
+  transform: scale(0.92);
+}
+
+.quantity-box span {
+  min-width: 28px;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--green-clr);
+}
+
+.empty-cart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.empty-cart i {
+  font-size: 4rem;
+  color: var(--green-clr);
+  opacity: 0.25;
+  margin-bottom: 18px;
+}
+
+.empty-cart h3 {
+  color: var(--green-clr);
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+}
+
+.empty-cart p {
+  color: #777;
+}
+
+.checkout-btn {
+  display: block;
+  text-align: center;
+  background: var(--light-greenish);
+  color: var(--soft-peach);
+  padding: 1rem;
+  border-radius: 999px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.checkout-btn:hover {
+  background: var(--dark-greenish);
+  transform: translateY(-3px);
 }
 
 /* Loader */
@@ -1149,10 +1387,7 @@ input[type="submit"]:hover {
   align-items: center;
 }
 
-/* ==========================
-   PHASE 7.4 - MAGNETIC BUTTONS
-========================== */
-
+/* MAGNETIC BUTTONS */
 .nav-btn,
 .action-btn,
 .modal-btn,

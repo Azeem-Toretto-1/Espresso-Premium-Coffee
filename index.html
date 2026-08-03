@@ -65,8 +65,11 @@
 
         <!-- CartIcon and OrderBtn -->
         <div class="action-list">
-          <i class="fa-solid fa-cart-shopping"></i>
           <a href="#" class="nav-btn">Order Now</a>
+          <div class="cart-icon">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span class="cart-count">0</span>
+          </div>
         </div>
 
         <!-- HamburgerIcon -->
@@ -159,78 +162,141 @@
         <!-- Coffee Cards -->
         <!-- 1st Row -->
         <div class="card-container" id="first-container">
-          <div class="card" data-type="Latte">
+          <div
+            class="card"
+            data-id="1"
+            data-name="Latte"
+            data-price="8.99"
+            data-image="./assets/latte.jpg"
+            data-type="Latte"
+          >
             <img src="./assets/latte.jpg" alt="Latte Coffee" class="card-img" />
 
-            <a href="#" class="action-btn placement">↗</a>
+            <a href="#" class="action-btn placement add-cart">↗</a>
           </div>
 
-          <div class="card" data-type="Mocha">
+          <div
+            class="card"
+            data-id="2"
+            data-name="Mocha"
+            data-price="9.49"
+            data-image="./assets/mocha.jpeg"
+            data-type="Mocha"
+          >
             <img
               src="./assets/mocha.jpeg"
               alt="Mocha Coffee"
               class="card-img"
             />
 
-            <a href="#" class="action-btn placement">↗</a>
+            <a href="#" class="action-btn placement add-cart">↗</a>
           </div>
 
-          <div class="card" data-type="Affogato">
+          <div
+            class="card"
+            data-id="3"
+            data-name="Affogato"
+            data-price="10.99"
+            data-image="./assets/affogato.jpg"
+            data-type="Affogato"
+          >
             <img
               src="./assets/affogato.jpg"
               alt="Affogato Coffee"
               class="card-img"
             />
 
-            <a href="#" class="action-btn placement">↗</a>
+            <a href="#" class="action-btn placement add-cart">↗</a>
           </div>
         </div>
 
         <!-- 2nd Row -->
         <div class="card-container" id="second-container">
-          <div class="card" data-type="Capucinno">
+          <div
+            class="card"
+            data-id="4"
+            data-name="Capuccino"
+            data-price="8.49"
+            data-image="./assets/capuccino.jpeg"
+            data-type="Capucinno"
+          >
             <img
               src="./assets/capuccino.jpg"
               alt="Capuccino"
               class="card-img"
             />
-            <a href="#" class="action-btn placement">↗</a>
+            <a href="#" class="action-btn placement add-cart">↗</a>
           </div>
 
-          <div class="card" data-type="Americano">
+          <div
+            class="card"
+            data-id="5"
+            data-name="Americano"
+            data-price="7.99"
+            data-image="./assets/americano.jpeg"
+            data-type="Americano"
+          >
             <img
               src="./assets/americano.jpg"
               alt="Americano"
               class="card-img"
             />
-            <a href="#" class="action-btn placement">↗</a>
+            <a href="#" class="action-btn placement add-cart">↗</a>
           </div>
 
-          <div class="card" data-type="Flat White">
+          <div
+            class="card"
+            data-id="6"
+            data-name="Flat White"
+            data-price="9.29"
+            data-image="./assets/flat white.jpeg"
+            data-type="Flat White"
+          >
             <img
               src="./assets/flat white.jpg"
               alt="Flat White"
               class="card-img"
             />
-            <a href="#" class="action-btn placement">↗</a>
+            <a href="#" class="action-btn placement add-cart">↗</a>
           </div>
         </div>
 
         <!-- 3rd Row -->
         <div class="card-container" id="third-container">
-          <div class="card" data-type="Frappe">
+          <div
+            class="card"
+            data-id="7"
+            data-name="Frappe"
+            data-price="10.49"
+            data-image="./assets/frappe.jpeg"
+            data-type="Frappe"
+          >
             <img src="./assets/frappe.jpeg" alt="Frappe" class="card-img" />
-            <a href="#" class="action-btn placement">↗</a>
+            <a href="#" class="action-btn placement add-cart">↗</a>
           </div>
 
-          <div class="card" data-type="Cartedo">
+          <div
+            class="card"
+            data-id="8"
+            data-name="Cartedo"
+            data-price="8.79"
+            data-image="./assets/cartedo.jpeg"
+            data-type="Cartedo"
+          >
             <img src="./assets/cartedo.jpg" alt="Cartedo" class="card-img" />
-            <a href="#" class="action-btn placement">↗</a>
+            <a href="#" class="action-btn placement add-cart">↗</a>
           </div>
 
-          <div class="card" data-type="Espresso">
+          <div
+            class="card"
+            data-id="9"
+            data-name="Espresso"
+            data-price="6.99"
+            data-image="./assets/espresso.jpeg"
+            data-type="Espresso"
+          >
             <img src="./assets/espresso.jpeg" alt="Espresso" class="card-img" />
-            <a href="#" class="action-btn placement">↗</a>
+            <a href="#" class="action-btn placement add-cart">↗</a>
           </div>
         </div>
       </section>
@@ -339,12 +405,34 @@
             <div class="modal-bottom">
               <h3 id="modalPrice">$12.99</h3>
 
-              <a href="#" class="modal-btn"> Buy Now </a>
+              <button class="modal-btn add-to-cart-modal">Add To Cart</button>
             </div>
           </div>
         </div>
       </div>
     </main>
+
+    <!-- Cart Sidebar -->
+    <aside class="cart-sidebar">
+      <div class="cart-header">
+        <h2>Your Cart</h2>
+
+        <button class="close-cart">&times;</button>
+      </div>
+
+      <div class="cart-items"></div>
+
+      <div class="cart-footer">
+        <div class="cart-total">
+          <span>Total</span>
+          <strong id="cartTotal">$0.00</strong>
+        </div>
+
+        <a href="#" class="checkout-btn"> Checkout </a>
+      </div>
+    </aside>
+
+    <div class="cart-overlay"></div>
 
     <!-- Footer -->
     <footer class="bg-peach side-spacing">
