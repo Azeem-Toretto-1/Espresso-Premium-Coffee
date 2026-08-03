@@ -32,6 +32,12 @@ addCartBtn.addEventListener("click", () => {
   updateCartBadge();
   renderCart();
 
+  showToast(
+    "Added to Cart",
+    `${currentProduct.name} added successfully.`,
+    "☕",
+  );
+
   console.log(cart);
 });
 
@@ -492,6 +498,41 @@ cartIcon.addEventListener("click", openCart);
 closeCart.addEventListener("click", closeCartSidebar);
 cartOverlay.addEventListener("click", closeCartSidebar);
 
+const toastContainer = document.querySelector(".toast-container");
+
+function showToast(title, message, icon = "☕") {
+  const toast = document.createElement("div");
+
+  toast.className = "toast";
+
+  toast.innerHTML = `
+    <div class="toast-icon">
+      ${icon}
+    </div>
+
+    <div class="toast-content">
+      <h4>${title}</h4>
+      <p>${message}</p>
+    </div>
+
+    <div class="toast-progress"></div>
+  `;
+
+  toastContainer.appendChild(toast);
+
+  requestAnimationFrame(() => {
+    toast.classList.add("show");
+  });
+
+  setTimeout(() => {
+    toast.classList.remove("show");
+
+    setTimeout(() => {
+      toast.remove();
+    }, 450);
+  }, 3000);
+}
+
 function renderCart() {
   const cartItems = document.querySelector(".cart-items");
 
@@ -551,6 +592,12 @@ function renderCart() {
 
       updateCartBadge();
       renderCart();
+
+      showToast(
+        "Quantity Updated",
+        `${product.name} quantity increased.`,
+        "➕",
+      );
     });
   });
 
@@ -560,10 +607,21 @@ function renderCart() {
 
       if (product.quantity > 1) {
         product.quantity--;
+        showToast(
+          "Quantity Updated",
+          `${product.name} quantity decreased.`,
+          "➖",
+        );
       } else {
         const index = cart.findIndex((item) => item.id === button.dataset.id);
 
         cart.splice(index, 1);
+
+        const removedName = product.name;
+
+        cart.splice(index, 1);
+
+        showToast("Removed", `${removedName} removed from cart.`, "🗑️");
       }
 
       updateCartBadge();
