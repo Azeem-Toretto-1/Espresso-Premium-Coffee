@@ -123,3 +123,54 @@ const cardObserver = new IntersectionObserver(
 cardRows.forEach((row) => {
   cardObserver.observe(row);
 });
+
+// BEST COFFEE REVEAL
+const bestLines = document.querySelectorAll(".best-line");
+const bestVideo = document.querySelector(".working-section video");
+
+const bestObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+
+      entry.target.classList.add("reveal-visible");
+
+      bestObserver.unobserve(entry.target);
+    });
+  },
+  {
+    threshold: 0.25,
+  },
+);
+
+bestLines.forEach((line) => {
+  bestObserver.observe(line);
+});
+
+bestObserver.observe(bestVideo);
+
+// BEST COFFEE REVEAL
+const bestSection = document.querySelector(".working-section:nth-of-type(3)");
+
+const bestItems = document.querySelectorAll(".best-line .reveal, video.reveal");
+
+const bestObservers = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+
+      bestItems.forEach((item, index) => {
+        setTimeout(() => {
+          item.classList.add("reveal-visible");
+        }, index * 180);
+      });
+
+      bestObservers.disconnect();
+    });
+  },
+  {
+    threshold: 0.25,
+  },
+);
+
+bestObservers.observe(bestSection);
