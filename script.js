@@ -174,3 +174,29 @@ const bestObservers = new IntersectionObserver(
 );
 
 bestObservers.observe(bestSection);
+
+//OUR ROASTING REVEAL
+const roastingContainer = document.querySelector(".roasting-containet");
+
+const roastingObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+
+      const roastingItems = entry.target.querySelectorAll(".roasting-content");
+
+      roastingItems.forEach((item, index) => {
+        setTimeout(() => {
+          item.classList.add("reveal-visible");
+        }, index * 180);
+      });
+
+      roastingObserver.disconnect();
+    });
+  },
+  {
+    threshold: 0.25,
+  },
+);
+
+roastingObserver.observe(roastingContainer);
