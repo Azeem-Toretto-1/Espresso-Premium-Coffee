@@ -297,8 +297,9 @@ h2 {
   overflow: visible;
   cursor: pointer;
   transition:
-    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
-    filter 0.45s ease;
+    transform 0.25s ease,
+    filter 0.45s ease,
+    box-shadow 0.35s ease;
 }
 
 .card-img {
@@ -308,8 +309,8 @@ h2 {
   border-radius: 50%;
   display: block;
   transition:
-    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
-    filter 0.45s ease;
+    transform 0.35s ease,
+    filter 0.35s ease;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 }
 
@@ -1064,6 +1065,103 @@ footer .icons-link:hover {
   to {
     transform: translateX(-100%);
   }
+}
+
+/* PREMIUM BUTTON */
+.nav-btn,
+.modal-btn,
+input[type="submit"] {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.nav-btn::before,
+.modal-btn::before,
+input[type="submit"]::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.18);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.45s ease;
+  z-index: -1;
+}
+
+.nav-btn:hover::before,
+.modal-btn:hover::before,
+input[type="submit"]:hover::before {
+  transform: scaleX(1);
+}
+
+.nav-btn:hover,
+.modal-btn:hover,
+input[type="submit"]:hover {
+  transform: translateY(-3px);
+}
+
+/* =========================
+   PREMIUM CURSOR
+========================= */
+
+.cursor {
+  position: fixed;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--orangi-yellow);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition:
+    width 0.25s ease,
+    height 0.25s ease,
+    background 0.25s ease,
+    opacity 0.25s ease;
+  z-index: 999999;
+}
+
+.cursor.active {
+  width: 60px;
+  height: 60px;
+  background: rgba(172, 129, 10, 0.25);
+  border: 2px solid var(--orangi-yellow);
+}
+
+/* CURSOR LABEL */
+.cursor span {
+  opacity: 0;
+  color: var(--soft-peach);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  transition: opacity 0.25s ease;
+  user-select: none;
+}
+
+.cursor.active span {
+  opacity: 1;
+}
+
+.cursor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ==========================
+   PHASE 7.4 - MAGNETIC BUTTONS
+========================== */
+
+.nav-btn,
+.action-btn,
+.modal-btn,
+input[type="submit"] {
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.35s ease,
+    background 0.35s ease,
+    color 0.35s ease;
 }
 
 /* Media Queries */

@@ -354,3 +354,83 @@ coffeeModal.addEventListener("click", (e) => {
     }
   });
 });
+
+// MAGNETIC CARDS
+const cards = document.querySelectorAll(".card");
+
+cards.forEach((card) => {
+  card.addEventListener("mousemove", (e) => {
+    const rect = card.getBoundingClientRect();
+
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const moveX = (x - rect.width / 2) / 18;
+    const moveY = (y - rect.height / 2) / 18;
+
+    card.style.transform = `translate(${moveX}px, ${moveY}px)`;
+  });
+
+  card.addEventListener("mouseleave", () => {
+    card.style.transform = "translate(0,0)";
+  });
+});
+
+/* PREMIUM CURSOR */
+const cursor = document.querySelector(".cursor");
+
+let mouseX = 0;
+let mouseY = 0;
+let currentX = 0;
+let currentY = 0;
+
+document.addEventListener("mousemove", (e) => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+});
+
+function animateCursor() {
+  currentX += (mouseX - currentX) * 0.18;
+  currentY += (mouseY - currentY) * 0.18;
+
+  cursor.style.left = currentX + "px";
+  cursor.style.top = currentY + "px";
+
+  requestAnimationFrame(animateCursor);
+}
+
+animateCursor();
+
+const hoverElements = document.querySelectorAll(
+  ".card, .action-btn, .nav-btn, .icons-link, .links",
+);
+
+hoverElements.forEach((item) => {
+  item.addEventListener("mouseenter", () => {
+    cursor.classList.add("active");
+  });
+
+  item.addEventListener("mouseleave", () => {
+    cursor.classList.remove("active");
+  });
+});
+
+/* MAGNETIC BUTTONS */
+const magneticButtons = document.querySelectorAll(
+  ".nav-btn, .action-btn, .modal-btn, input[type='submit']",
+);
+
+magneticButtons.forEach((button) => {
+  button.addEventListener("mousemove", (e) => {
+    const rect = button.getBoundingClientRect();
+
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+
+    button.style.transform = `translate(${x * 0.18}px, ${y * 0.18}px)`;
+  });
+
+  button.addEventListener("mouseleave", () => {
+    button.style.transform = "translate(0,0)";
+  });
+});
