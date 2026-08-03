@@ -638,6 +638,7 @@ h5 {
   color: var(--light-greenish);
   font-size: 1rem;
 }
+
 .footer-container {
   display: flex;
   justify-content: space-between;
@@ -647,10 +648,43 @@ h5 {
 .footer-col {
   flex-basis: 10rem;
   margin-top: 1.5rem;
+  transition: transform 0.35s ease;
+}
+
+.footer-col:hover {
+  transform: translateY(-4px);
 }
 
 .footer-list {
   margin-top: 0.8rem;
+}
+
+/* Footer Links */
+.footer-list .links {
+  position: relative;
+  transition:
+    color 0.35s ease,
+    transform 0.35s ease;
+}
+
+.footer-list .links:hover {
+  color: var(--orangi-yellow);
+  transform: translateX(8px);
+}
+
+.footer-list .links::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0%;
+  height: 2px;
+  background: var(--orangi-yellow);
+  transition: width 0.35s ease;
+}
+
+.footer-list .links:hover::after {
+  width: 100%;
 }
 
 .footer-list li {
@@ -674,6 +708,11 @@ input[type="email"] {
   height: 100%;
   border-radius: inherit;
   padding-inline: 0.8rem;
+  transition: all 0.35s ease;
+}
+
+input[type="email"]:focus {
+  transform: scale(1.02);
 }
 
 input:focus {
@@ -687,6 +726,47 @@ input[type="submit"] {
   font-size: 0.8rem;
   border-radius: 5rem;
   padding: 0.6rem 0.5rem;
+  cursor: pointer;
+  transition:
+    transform 0.35s ease,
+    background 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+input[type="submit"]:hover {
+  transform: translateY(-3px);
+  background: var(--dark-greenish);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+footer .icons-link {
+  transition:
+    transform 0.35s ease,
+    background 0.35s ease,
+    color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+footer .icons-link:hover {
+  transform: translateY(-8px) scale(1.1);
+  background: var(--light-greenish);
+  color: var(--soft-peach);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* FOOTER REVEAL */
+.footer-col.reveal {
+  opacity: 0;
+  transform: translateY(60px);
+
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.footer-col.reveal.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Loader */

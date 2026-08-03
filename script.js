@@ -200,3 +200,32 @@ const roastingObserver = new IntersectionObserver(
 );
 
 roastingObserver.observe(roastingContainer);
+
+// ===============================
+// PHASE 5.1 - FOOTER REVEAL
+// ===============================
+
+const footer = document.querySelector("footer");
+
+const footerObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+
+      const footerCols = entry.target.querySelectorAll(".footer-col");
+
+      footerCols.forEach((col, index) => {
+        setTimeout(() => {
+          col.classList.add("reveal-visible");
+        }, index * 180);
+      });
+
+      footerObserver.disconnect();
+    });
+  },
+  {
+    threshold: 0.25,
+  },
+);
+
+footerObserver.observe(footer);
