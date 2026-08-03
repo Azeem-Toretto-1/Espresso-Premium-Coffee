@@ -769,6 +769,177 @@ footer .icons-link:hover {
   transform: translateY(0);
 }
 
+/* PREMIUM COFFEE MODAL */
+.coffee-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.35s ease,
+    visibility 0.35s ease;
+  z-index: 9999;
+}
+
+.coffee-modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.coffee-modal-card {
+  width: min(900px, 95%);
+  background: var(--soft-peach);
+  border-radius: 2rem;
+  display: flex;
+  overflow: hidden;
+  transform: scale(0.9);
+  transition: transform 0.4s ease;
+  position: relative;
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.35),
+    0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.modal-image {
+  flex: 1;
+}
+
+.modal-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.45s ease;
+  cursor: pointer;
+}
+
+.modal-image img:hover {
+  transform: scale(1.05);
+}
+
+.modal-content {
+  flex: 1;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.modal-tag {
+  display: inline-block;
+  background: var(--orangi-yellow);
+  color: var(--light-greenish);
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  font-weight: 600;
+  margin-bottom: -1rem;
+}
+
+.modal-content h2 {
+  color: var(--light-greenish);
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+.modal-content p {
+  color: #444;
+  max-width: 100%;
+  text-align: left;
+  margin-bottom: 2rem;
+}
+
+.modal-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #f1b819;
+  margin-bottom: 2rem;
+}
+
+.modal-rating span {
+  color: #444;
+  margin-left: 0.5rem;
+}
+
+.modal-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-bottom h3 {
+  color: var(--light-greenish);
+  font-size: 2rem;
+}
+
+.modal-btn {
+  background: var(--light-greenish);
+  color: var(--soft-peach);
+  padding: 0.9rem 1.8rem;
+  border-radius: 999px;
+  font-weight: 600;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.modal-btn:hover {
+  background: var(--dark-greenish);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.18);
+}
+
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 45px;
+  height: 45px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  background: var(--orangi-yellow);
+  color: var(--light-greenish);
+  font-size: 1.5rem;
+  transition: 0.3s ease;
+}
+
+.modal-close:hover {
+  transform: rotate(90deg);
+}
+
+/* OPEN STATE */
+.coffee-modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.coffee-modal.active .coffee-modal-card {
+  transform: scale(1);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .coffee-modal-card {
+    flex-direction: column;
+  }
+
+  .modal-image {
+    height: 260px;
+  }
+
+  .modal-content {
+    padding: 2rem;
+  }
+}
+
 /* Loader */
 .loader {
   position: fixed;
