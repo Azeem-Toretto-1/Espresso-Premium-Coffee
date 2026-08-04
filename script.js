@@ -2,7 +2,7 @@ const navList = document.querySelector("#navList");
 const hamburger = document.querySelector("#hamburger");
 
 // SHOPPING CART
-let cart = [];
+let cart = JSON.parse(localStorage.getItem("espressoCart")) || [];
 let currentProduct = null;
 const cartCount = document.querySelector(".cart-count");
 const addCartBtn = document.querySelector(".modal-btn");
@@ -10,6 +10,12 @@ const cartIcon = document.querySelector(".cart-icon");
 const cartSidebar = document.querySelector(".cart-sidebar");
 const cartOverlay = document.querySelector(".cart-overlay");
 const closeCart = document.querySelector(".close-cart");
+const checkoutBtn = document.querySelector(".checkout-btn");
+const checkoutModal = document.querySelector(".checkout-modal");
+const closeCheckout = document.querySelector(".close-checkout");
+const checkoutItems = document.querySelector("#checkoutItems");
+const checkoutPrice = document.querySelector("#checkoutPrice");
+const checkoutForm = document.querySelector(".checkout-form");
 
 hamburger.addEventListener("click", () => {
   navList.classList.toggle("navlist-active");
@@ -29,6 +35,7 @@ addCartBtn.addEventListener("click", () => {
     });
   }
 
+  saveCart();
   updateCartBadge();
   renderCart();
 
@@ -47,6 +54,10 @@ function updateCartBadge() {
   }, 0);
 
   cartCount.textContent = totalItems;
+}
+
+function saveCart() {
+  localStorage.setItem("espressoCart", JSON.stringify(cart));
 }
 
 // Premium Loader
@@ -590,6 +601,7 @@ function renderCart() {
 
       product.quantity++;
 
+      saveCart();
       updateCartBadge();
       renderCart();
 
@@ -607,6 +619,7 @@ function renderCart() {
 
       if (product.quantity > 1) {
         product.quantity--;
+        saveCart();
         showToast(
           "Quantity Updated",
           `${product.name} quantity decreased.`,
@@ -615,11 +628,11 @@ function renderCart() {
       } else {
         const index = cart.findIndex((item) => item.id === button.dataset.id);
 
-        cart.splice(index, 1);
-
         const removedName = product.name;
 
         cart.splice(index, 1);
+
+        saveCart();
 
         showToast("Removed", `${removedName} removed from cart.`, "🗑️");
       }
@@ -636,4 +649,74 @@ function renderCart() {
   document.getElementById("cartTotal").textContent = `$${total.toFixed(2)}`;
 }
 
+updateCartBadge();
 renderCart();
+
+checkoutBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  if (cart.length === 0) {
+    showToast("Cart Empty", "Please add coffee before checkout.", "🛒");
+    return;
+  }
+
+  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+
+  const totalPrice = cart.reduce((sum, item) => {
+    return sum + item.price * item.quantity;
+  }, 0);
+
+  checkoutItems.textContent = totalItems;
+  checkoutPrice.textContent = `$${totalPrice.toFixed(2)}`;
+
+  checkoutModal.classList.add("active");
+  document.body.style.overflow = "hidden";
+});
+
+closeCheckout.addEventListener("click", () => {
+  checkoutModal.classList.remove("active");
+  document.body.style.overflow = "";
+});
+
+checkoutModal.addEventListener("click", (e) => {
+  if (e.target === checkoutModal) {
+    checkoutModal.classList.remove("active");
+    document.body.style.overflow = "";
+  }
+});
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && checkoutModal.classList.contains("active")) {
+    checkoutModal.classList.remove("active");
+    document.body.style.overflow = "";
+  }
+});
+
+checkoutForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  showToast("Order Placed 🎉", "Your coffee is being prepared.", "☕");
+
+  checkoutModal.classList.remove("active");
+  document.body.style.overflow = "";
+
+  cart = [];
+
+  localStorage.removeItem("espressoCart");
+
+  updateCartBadge();
+  renderCart();
+
+  confetti({
+    particleCount: 180,
+    spread: 90,
+    origin: {
+      y: 0.6,
+    },
+  });
+
+  closeCheckout.click();
+  closeCartSidebar();
+
+  checkoutForm.reset();
+});

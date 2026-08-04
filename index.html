@@ -523,6 +523,36 @@
 
     <!-- Toast Container -->
     <div class="toast-container"></div>
+
+    <!-- Checkout Modal -->
+    <div class="checkout-modal">
+      <div class="checkout-card">
+        <button class="close-checkout">&times;</button>
+
+        <h2>Checkout</h2>
+
+        <div class="checkout-summary">
+          <div class="summary-row">
+            <span>Total Items</span>
+            <strong id="checkoutItems">0</strong>
+          </div>
+
+          <div class="summary-row">
+            <span>Total Price</span>
+            <strong id="checkoutPrice">$0.00</strong>
+          </div>
+        </div>
+
+        <form class="checkout-form">
+          <input type="text" placeholder="Your Name" required />
+
+          <input type="email" placeholder="Email Address" required />
+
+          <button type="submit" class="place-order-btn">Place Order</button>
+        </form>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
     <script src="./script.js"></script>
   </body>
 </html>
