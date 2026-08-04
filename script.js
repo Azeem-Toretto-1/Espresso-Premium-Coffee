@@ -26,6 +26,7 @@ const coffeeProductsSection = document.querySelector(".coffee-section");
 const roastingLinks = document.querySelectorAll(
   ".roasting-content .action-btn",
 );
+const orderNowBtn = document.querySelector(".nav-btn");
 // const aboutBadge = aboutSection.querySelector(".about-badge");
 
 hamburger.addEventListener("click", () => {
@@ -806,6 +807,20 @@ aboutCoffeeBtn.addEventListener("click", (e) => {
   e.preventDefault();
 
   productsSection.scrollIntoView({
+    behavior: "smooth",
+    block: "start",
+  });
+});
+
+// ORDER NOW
+orderNowBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  // Show all coffee products
+  showAllCoffee();
+
+  // Smooth scroll to Our Coffee
+  coffeeProductsSection.scrollIntoView({
     behavior: "smooth",
     block: "start",
   });
