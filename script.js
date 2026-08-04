@@ -1,7 +1,5 @@
 const navList = document.querySelector("#navList");
 const hamburger = document.querySelector("#hamburger");
-
-// SHOPPING CART
 let cart = JSON.parse(localStorage.getItem("espressoCart")) || [];
 let currentProduct = null;
 const cartCount = document.querySelector(".cart-count");
@@ -16,6 +14,19 @@ const closeCheckout = document.querySelector(".close-checkout");
 const checkoutItems = document.querySelector("#checkoutItems");
 const checkoutPrice = document.querySelector("#checkoutPrice");
 const checkoutForm = document.querySelector(".checkout-form");
+const productNav = document.querySelector(".nav-product");
+const offersNav = document.querySelector(".nav-offers");
+const allCoffeeCards = document.querySelectorAll(".card");
+const productsSection = document.querySelector(".working-section.bg-peach");
+const processNav = document.querySelector(".nav-process");
+const processVideo = document.querySelector(".working-section video");
+const packingNav = document.querySelector(".nav-packing");
+const roastingSection = document.querySelector(".roasting-section");
+const coffeeProductsSection = document.querySelector(".coffee-section");
+const roastingLinks = document.querySelectorAll(
+  ".roasting-content .action-btn",
+);
+// const aboutBadge = aboutSection.querySelector(".about-badge");
 
 hamburger.addEventListener("click", () => {
   navList.classList.toggle("navlist-active");
@@ -720,3 +731,117 @@ checkoutForm.addEventListener("submit", (e) => {
 
   checkoutForm.reset();
 });
+
+// NAVIGATION - COFFEE PRODUCTS
+function showAllCoffee() {
+  allCoffeeCards.forEach((card) => {
+    card.style.display = "";
+  });
+}
+
+function showSpecialOffers() {
+  allCoffeeCards.forEach((card) => {
+    card.style.display = card.dataset.offer === "true" ? "" : "none";
+  });
+}
+
+// Product
+productNav.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  showAllCoffee();
+
+  productsSection.scrollIntoView({
+    behavior: "smooth",
+    block: "start",
+  });
+});
+
+// Special Offers
+offersNav.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  showSpecialOffers();
+
+  productsSection.scrollIntoView({
+    behavior: "smooth",
+    block: "start",
+  });
+});
+
+processNav.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  processVideo.scrollIntoView({
+    behavior: "smooth",
+    block: "center",
+  });
+
+  processVideo.play();
+});
+
+packingNav.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  roastingSection.scrollIntoView({
+    behavior: "smooth",
+    block: "start",
+  });
+});
+
+roastingLinks.forEach((link) => {
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    coffeeProductsSection.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  });
+});
+
+const aboutCoffeeBtn = document.querySelector(".about-btn");
+
+aboutCoffeeBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  productsSection.scrollIntoView({
+    behavior: "smooth",
+    block: "start",
+  });
+});
+
+// ABOUT REVEAL
+const aboutSection = document.querySelector(".about-section");
+const aboutBadge = aboutSection.querySelector(".about-badge");
+
+const aboutObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+
+      const aboutText = entry.target.querySelector(".about-text");
+      const aboutImage = entry.target.querySelector(".about-image");
+
+      // Text reveal
+      aboutText.classList.add("reveal-visible");
+
+      // Image reveal
+      setTimeout(() => {
+        aboutImage.classList.add("reveal-visible");
+      }, 250);
+
+      // Badge reveal
+      setTimeout(() => {
+        aboutBadge.classList.add("reveal-visible");
+      }, 650);
+
+      aboutObserver.unobserve(entry.target);
+    });
+  },
+  {
+    threshold: 0.25,
+  },
+);
+
+aboutObserver.observe(aboutSection);
