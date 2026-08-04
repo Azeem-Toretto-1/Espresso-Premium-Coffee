@@ -3,10 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Espresso | Premium Coffee Experience</title>
+
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="./assets/coffee logo.png" />
-    <!-- Font Awesome CDN -->
+
+    <!-- Font Awesome -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css"
@@ -14,18 +17,16 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <!-- StyleSheet Link -->
+
+    <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css" />
   </head>
+
   <body id="top">
-    <!-- Loader -->
+    <!-- Loader  -->
     <div class="loader">
       <div class="loader-inner">
-        <img
-          src="./assets/logo.png"
-          alt="Espresso Logo"
-          class="loader-logo"
-        />
+        <img src="./assets/logo.png" alt="Espresso Logo" class="loader-logo" />
 
         <h2 class="loader-title">ESPRESSO</h2>
 
@@ -42,54 +43,63 @@
       <nav>
         <div class="logo">
           <a href="#top">
-            <img src="./assets/coffee logo.png" alt="Coffee logo" />
+            <img src="./assets/coffee logo.png" alt="Espresso Coffee Logo" />
           </a>
         </div>
 
-        <!-- NavLinks -->
         <ul class="navlist" id="navList">
           <li>
-            <a href="#products" class="links peach-clr nav-product">Product</a>
+            <a href="#products" class="links peach-clr nav-product">
+              Product
+            </a>
           </li>
+
           <li>
-            <a href="#products" class="links peach-clr nav-offers"
-              >Special Offers</a
-            >
+            <a href="#products" class="links peach-clr nav-offers">
+              Special Offers
+            </a>
           </li>
+
           <li>
-            <a href="#" class="links peach-clr nav-process">The Process</a>
+            <a href="#" class="links peach-clr nav-process"> The Process </a>
           </li>
+
           <li>
-            <a href="#" class="links peach-clr nav-packing">Packing</a>
+            <a href="#" class="links peach-clr nav-packing"> Packing </a>
           </li>
+
           <li>
-            <a href="#about" class="links peach-clr">About</a>
+            <a href="#about" class="links peach-clr"> About </a>
           </li>
         </ul>
 
-        <!-- CartIcon and OrderBtn -->
         <div class="action-list">
           <a href="#" class="nav-btn">Order Now</a>
+
           <div class="cart-icon">
             <i class="fa-solid fa-cart-shopping"></i>
             <span class="cart-count">0</span>
           </div>
         </div>
 
-        <!-- HamburgerIcon -->
-        <div class="hamburger" id="hamburger">
+        <button
+          class="hamburger"
+          id="hamburger"
+          type="button"
+          aria-label="Open menu"
+        >
           <i class="fa-solid fa-bars"></i>
-        </div>
+        </button>
       </nav>
     </header>
 
-    <!-- Hero -->
     <main>
+      <!-- Hero -->
       <section class="hero-section bg-green side-spacing">
-        <h1 class="peach-clr reveal reveal-up">Expresso Yourself</h1>
+        <h1 class="peach-clr reveal reveal-up">Espresso Yourself</h1>
 
         <div class="hero-img reveal reveal-scale">
-          <img src="./assets/cold coffee.png" alt="Cold-Coffee-Image" />
+          <img src="./assets/cold coffee.png" alt="Cold Coffee" />
         </div>
 
         <div class="hero-content">
@@ -99,49 +109,57 @@
             comfort, and unforgettable moments.
           </p>
 
-          <!-- Social Links -->
           <div class="social-list reveal reveal-right">
-            <a href="#" class="icons-link bg-peach">
+            <a href="#" class="icons-link bg-peach" aria-label="Facebook">
               <i class="fa-brands fa-facebook-f"></i>
             </a>
-            <a href="#" class="icons-link bg-peach">
+
+            <a href="#" class="icons-link bg-peach" aria-label="Twitter">
               <i class="fa-brands fa-twitter"></i>
             </a>
-            <a href="#" class="icons-link bg-peach">
+
+            <a href="#" class="icons-link bg-peach" aria-label="Instagram">
               <i class="fa-brands fa-instagram"></i>
             </a>
-            <a href="#" class="icons-link bg-peach">
+
+            <a href="#" class="icons-link bg-peach" aria-label="Pinterest">
               <i class="fa-brands fa-pinterest-p"></i>
             </a>
           </div>
         </div>
 
-        <!-- Headline -->
         <div class="headline reveal reveal-up">
           <div class="headline-content">
-            <img src="./assets/headline icon.png" alt="Headline-Icon" />
+            <img src="./assets/headline icon.png" alt="" />
             <h4>Espresso</h4>
-            <img src="./assets/headline icon.png" alt="Headline-Icon" />
+
+            <img src="./assets/headline icon.png" alt="" />
             <h4>Capucinno</h4>
-            <img src="./assets/headline icon.png" alt="Headline-Icon" />
+
+            <img src="./assets/headline icon.png" alt="" />
             <h4>Mocha</h4>
-            <img src="./assets/headline icon.png" alt="Headline-Icon" />
+
+            <img src="./assets/headline icon.png" alt="" />
             <h4>Lattes</h4>
-            <img src="./assets/headline icon.png" alt="Headline-Icon" />
+
+            <img src="./assets/headline icon.png" alt="" />
             <h4>Cold Brew</h4>
           </div>
 
-          <!-- Repeating Headline -->
-          <div class="headline-content">
-            <img src="./assets/headline icon.png" alt="Headline-Icon" />
+          <div class="headline-content" aria-hidden="true">
+            <img src="./assets/headline icon.png" alt="" />
             <h4>Espresso</h4>
-            <img src="./assets/headline icon.png" alt="Headline-Icon" />
+
+            <img src="./assets/headline icon.png" alt="" />
             <h4>Capucinno</h4>
-            <img src="./assets/headline icon.png" alt="Headline-Icon" />
+
+            <img src="./assets/headline icon.png" alt="" />
             <h4>Mocha</h4>
-            <img src="./assets/headline icon.png" alt="Headline-Icon" />
+
+            <img src="./assets/headline icon.png" alt="" />
             <h4>Lattes</h4>
-            <img src="./assets/headline icon.png" alt="Headline-Icon" />
+
+            <img src="./assets/headline icon.png" alt="" />
             <h4>Cold Brew</h4>
           </div>
         </div>
@@ -154,7 +172,7 @@
       >
         <div class="hero-content coffee-intro">
           <div class="img-part">
-            <img src="./assets/coffee beans.png" alt="Coffee-Beans-Image" />
+            <img src="./assets/coffee beans.png" alt="Coffee Beans" />
           </div>
 
           <p class="green-clr">
@@ -166,9 +184,8 @@
 
         <h2 class="green-clr">Our Coffee</h2>
 
-        <!-- Coffee Cards -->
-        <!-- 1st Row -->
         <div class="card-container" id="first-container">
+          <!-- Latte -->
           <div
             class="card"
             data-id="1"
@@ -185,6 +202,7 @@
             <a href="#" class="action-btn placement add-cart">↗</a>
           </div>
 
+          <!-- Mocha -->
           <div
             class="card"
             data-id="2"
@@ -202,6 +220,7 @@
             <a href="#" class="action-btn placement add-cart">↗</a>
           </div>
 
+          <!-- Affogato -->
           <div
             class="card"
             data-id="3"
@@ -220,8 +239,8 @@
           </div>
         </div>
 
-        <!-- 2nd Row -->
         <div class="card-container" id="second-container">
+          <!-- Cappuccino -->
           <div
             class="card"
             data-id="4"
@@ -232,12 +251,14 @@
           >
             <img
               src="./assets/capuccino.jpg"
-              alt="Capuccino"
+              alt="Cappuccino"
               class="card-img"
             />
+
             <a href="#" class="action-btn placement add-cart">↗</a>
           </div>
 
+          <!-- Americano -->
           <div
             class="card"
             data-id="5"
@@ -258,6 +279,7 @@
             <a href="#" class="action-btn placement add-cart">↗</a>
           </div>
 
+          <!-- Flat White -->
           <div
             class="card"
             data-id="6"
@@ -271,12 +293,13 @@
               alt="Flat White"
               class="card-img"
             />
+
             <a href="#" class="action-btn placement add-cart">↗</a>
           </div>
         </div>
 
-        <!-- 3rd Row -->
         <div class="card-container" id="third-container">
+          <!-- Frappe -->
           <div
             class="card"
             data-id="7"
@@ -286,9 +309,11 @@
             data-type="Frappe"
           >
             <img src="./assets/frappe.jpeg" alt="Frappe" class="card-img" />
+
             <a href="#" class="action-btn placement add-cart">↗</a>
           </div>
 
+          <!-- Cartedo -->
           <div
             class="card"
             data-id="8"
@@ -305,6 +330,7 @@
             <a href="#" class="action-btn placement add-cart">↗</a>
           </div>
 
+          <!-- Espresso -->
           <div
             class="card"
             data-id="9"
@@ -314,6 +340,7 @@
             data-type="Espresso"
           >
             <img src="./assets/espresso.jpeg" alt="Espresso" class="card-img" />
+
             <a href="#" class="action-btn placement add-cart">↗</a>
           </div>
         </div>
@@ -323,88 +350,91 @@
       <section class="working-section bg-green side-spacing">
         <div class="hero-content best-line" data-type="min-padding">
           <h2 class="peach-clr reveal reveal-left">Our Arabica Beans And</h2>
+
           <div class="img-con reveal reveal-right">
-            <img src="./assets/coffee plant.jpg" alt="Coffee-Plant-Img" />
+            <img src="./assets/coffee plant.jpg" alt="Coffee Plant" />
           </div>
         </div>
 
-        <!-- 2nd Line -->
         <div class="hero-content best-line" data-type="min-padding">
           <div class="img-con reveal reveal-left">
-            <img src="./assets/coffee bag.jpg" alt="Coffee-Bag-Img" />
+            <img src="./assets/coffee bag.jpg" alt="Coffee Bag" />
           </div>
+
           <h2 class="peach-clr reveal reveal-right">Freshly Ground Spices</h2>
         </div>
 
-        <!-- 3rd Line -->
         <div class="hero-content best-line" data-type="min-padding">
           <h2 class="peach-clr reveal reveal-left">To Achieve Rich Coffee</h2>
+
           <div class="img-con reveal reveal-right">
-            <img src="./assets/coffee.jpg" alt="Coffee-Img" />
+            <img src="./assets/coffee.jpg" alt="Fresh Coffee" />
           </div>
         </div>
 
-        <!-- Our Coffee Video Demo -->
-        <video class="reveal reveal-scale" loop muted>
+        <video class="reveal reveal-scale" autoplay loop muted>
           <source src="./assets/coffee making.mp4" />
         </video>
       </section>
 
       <!-- Our Roasting -->
       <section class="working-section bg-green side-spacing roasting-section">
-        <h2 class="peach-clr start start">Our Roasting</h2>
+        <h2 class="peach-clr start">Our Roasting</h2>
 
         <ul class="roasting-containet">
-          <!-- Light Roasting -->
           <li class="roasting-content listing reveal reveal-up">
             <h3 class="peach-clr">Light Roasting</h3>
+
             <a href="#" class="action-btn">↗</a>
 
             <div class="roasting-img">
-              <img src="./assets/light roast.jpg" alt="Light-Roast-Img" />
+              <img src="./assets/light roast.jpg" alt="Light Roast" />
             </div>
           </li>
-          <!-- Medium Roasting -->
+
           <li class="roasting-content listing reveal reveal-up">
             <h3 class="peach-clr">Medium Roasting</h3>
+
             <a href="#" class="action-btn">↗</a>
 
             <div class="roasting-img">
-              <img src="./assets/medium roast.jpg" alt="Medium-Roast-Img" />
+              <img src="./assets/medium roast.jpg" alt="Medium Roast" />
             </div>
           </li>
-          <!-- French Roasting -->
+
           <li class="roasting-content listing reveal reveal-up">
             <h3 class="peach-clr">French Roasting</h3>
+
             <a href="#" class="action-btn">↗</a>
 
             <div class="roasting-img">
-              <img src="./assets/french roast.jpg" alt="French-Roast-Img" />
+              <img src="./assets/french roast.jpg" alt="French Roast" />
             </div>
           </li>
-          <!-- Dark Roasting -->
+
           <li class="roasting-content listing reveal reveal-up">
             <h3 class="peach-clr">Dark Roasting</h3>
+
             <a href="#" class="action-btn">↗</a>
 
             <div class="roasting-img">
-              <img src="./assets/dark roast.jpg" alt="Dark-Roast-Img" />
+              <img src="./assets/dark roast.jpg" alt="Dark Roast" />
             </div>
           </li>
         </ul>
       </section>
 
-      <!-- Premium Coffee Modal -->
+      <!-- Coffee Modal -->
       <div class="coffee-modal">
         <div class="coffee-modal-card">
-          <button class="modal-close">&times;</button>
+          <button class="modal-close" type="button">&times;</button>
 
           <div class="modal-image">
             <img src="" alt="Coffee Image" id="modalImg" />
           </div>
 
           <div class="modal-content">
-            <span class="modal-tag"> Premium Coffee </span>
+            <span class="modal-tag">Premium Coffee</span>
 
             <h2 id="modalTitle">Coffee Name</h2>
 
@@ -423,7 +453,9 @@
             <div class="modal-bottom">
               <h3 id="modalPrice">$12.99</h3>
 
-              <button class="modal-btn add-to-cart-modal">Add To Cart</button>
+              <button class="modal-btn add-to-cart-modal" type="button">
+                Add To Cart
+              </button>
             </div>
           </div>
         </div>
@@ -435,7 +467,7 @@
       <div class="cart-header">
         <h2>Your Cart</h2>
 
-        <button class="close-cart">&times;</button>
+        <button class="close-cart" type="button">&times;</button>
       </div>
 
       <div class="cart-items"></div>
@@ -446,7 +478,7 @@
           <strong id="cartTotal">$0.00</strong>
         </div>
 
-        <a href="#" class="checkout-btn"> Checkout </a>
+        <a href="#" class="checkout-btn">Checkout</a>
       </div>
     </aside>
 
@@ -492,7 +524,6 @@
       </div>
     </section>
 
-    <!-- Footer -->
     <!-- Footer -->
     <footer class="footer bg-peach side-spacing">
       <div class="footer-container">
@@ -556,48 +587,46 @@
               required
             />
 
-            <button type="submit">↗</button>
+            <button type="submit" aria-label="Subscribe">↗</button>
           </form>
 
           <div class="footer-socials">
-            <a href="#" class="icons-link">
+            <a href="#" class="icons-link" aria-label="Facebook">
               <i class="fa-brands fa-facebook-f"></i>
             </a>
 
-            <a href="#" class="icons-link">
+            <a href="#" class="icons-link" aria-label="Twitter">
               <i class="fa-brands fa-twitter"></i>
             </a>
 
-            <a href="#" class="icons-link">
+            <a href="#" class="icons-link" aria-label="Instagram">
               <i class="fa-brands fa-instagram"></i>
             </a>
 
-            <a href="#" class="icons-link">
+            <a href="#" class="icons-link" aria-label="Pinterest">
               <i class="fa-brands fa-pinterest-p"></i>
             </a>
           </div>
         </div>
       </div>
 
-      <!-- Footer Bottom -->
       <div class="footer-bottom footer-reveal">
         <span>© 2026 Espresso Coffee. All rights reserved.</span>
-
-        <span> Crafted with ☕ & passion </span>
+        <span>Crafted with ☕ & passion</span>
       </div>
     </footer>
 
+    <!-- UI Elements -->
     <div class="cursor">
       <span>VIEW</span>
     </div>
 
-    <!-- Toast Container -->
     <div class="toast-container"></div>
 
     <!-- Checkout Modal -->
     <div class="checkout-modal">
       <div class="checkout-card">
-        <button class="close-checkout">&times;</button>
+        <button class="close-checkout" type="button">&times;</button>
 
         <h2>Checkout</h2>
 
@@ -622,6 +651,8 @@
         </form>
       </div>
     </div>
+
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
     <script src="./script.js"></script>
   </body>

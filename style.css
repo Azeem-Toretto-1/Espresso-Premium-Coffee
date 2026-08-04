@@ -29,6 +29,12 @@ body {
   --wooden-brown: #693f04;
   --white-rock: #ebe7d0;
   --pure-white: #fff;
+
+  /* Aliases */
+  --bg-green: var(--light-greenish);
+  --bg-peach: var(--soft-peach);
+  --green-clr: var(--light-greenish);
+  --peach-clr: var(--soft-peach);
 }
 
 /* Basic Styling */
@@ -1498,7 +1504,7 @@ h3 {
   font-weight: 700;
   text-align: center;
   margin-bottom: 2rem;
-  color: var(--green-clr);
+  color: var(--orangi-yellow);
   text-transform: uppercase;
 }
 
@@ -2014,13 +2020,9 @@ input[type="submit"] {
   }
 }
 
-/* =========================================================
-   COMPLETE RESPONSIVE SYSTEM
-   ========================================================= */
+/* COMPLETE RESPONSIVE */
 
-/* =========================================================
-   1440px — LARGE LAPTOP / SMALL DESKTOP
-   ========================================================= */
+/* 1440px — LARGE LAPTOP / SMALL DESKTOP */
 @media (max-width: 1440px) {
   .side-spacing {
     padding-inline: 5rem;
@@ -2036,9 +2038,7 @@ input[type="submit"] {
   }
 }
 
-/* =========================================================
-   1280px — LAPTOP
-   ========================================================= */
+/* 1280px — LAPTOP */
 @media (max-width: 1280px) {
   .side-spacing {
     padding-inline: 4rem;
@@ -2085,9 +2085,7 @@ input[type="submit"] {
   }
 }
 
-/* =========================================================
-   1024px — TABLET LANDSCAPE / SMALL LAPTOP
-   ========================================================= */
+/* 1024px — TABLET LANDSCAPE / SMALL LAPTOP */
 @media (max-width: 1024px) {
   .side-spacing {
     padding-inline: 3rem;
@@ -2210,18 +2208,13 @@ input[type="submit"] {
   }
 }
 
-/* =========================================================
-   900px — TABLET
-   ========================================================= */
+/* 900px — TABLET */
 @media (max-width: 900px) {
   .side-spacing {
     padding-inline: 2.5rem;
   }
 
-  /* =========================
-     HEADER
-  ========================= */
-
+  /* HEADER */
   header.bg-green {
     height: 12vh;
   }
@@ -2455,18 +2448,13 @@ input[type="submit"] {
     margin-inline: auto;
   }
 
-  /* =========================
-     FOOTER
-  ========================= */
-
+  /* FOOTER */
   .footer-container {
     grid-template-columns: 1fr 1fr;
   }
 }
 
-/* =========================================================
-   768px — TABLET PORTRAIT
-   ========================================================= */
+/* 768px — TABLET PORTRAIT */
 @media (max-width: 768px) {
   .side-spacing {
     padding-inline: 2rem;
@@ -2566,9 +2554,7 @@ input[type="submit"] {
   }
 }
 
-/* =========================================================
-   650px — MOBILE
-   ========================================================= */
+/* 650px — MOBILE */
 @media (max-width: 650px) {
   .side-spacing {
     padding-inline: 1.5rem;
@@ -2700,9 +2686,7 @@ input[type="submit"] {
   }
 }
 
-/* =========================================================
-   480px — SMALL MOBILE
-   ========================================================= */
+/* 480px — SMALL MOBILE */
 @media (max-width: 480px) {
   .side-spacing {
     padding-inline: 1.2rem;
@@ -2848,9 +2832,7 @@ input[type="submit"] {
   }
 }
 
-/* =========================================================
-   400px — VERY SMALL MOBILE
-   ========================================================= */
+/* 400px — VERY SMALL MOBILE */
 @media (max-width: 400px) {
   html,
   body {
@@ -3091,9 +3073,7 @@ input[type="submit"] {
   }
 }
 
-/* =========================================================
-   360px — EXTRA SMALL MOBILE
-   ========================================================= */
+/* 360px — EXTRA SMALL MOBILE */
 @media (max-width: 360px) {
   .side-spacing {
     padding-inline: 0.8rem;
@@ -3151,7 +3131,7 @@ input[type="submit"] {
   }
 
   .about-badge {
-    right: -.60rem;
+    right: -0.6rem;
   }
 
   /* CHECKOUT */
@@ -3170,9 +3150,7 @@ input[type="submit"] {
   }
 }
 
-/* =========================================================
-   320px — MINIMUM SAFE WIDTH
-   ========================================================= */
+/* 320px — MINIMUM SAFE WIDTH */
 @media (max-width: 320px) {
   .side-spacing {
     padding-inline: 0.6rem;
