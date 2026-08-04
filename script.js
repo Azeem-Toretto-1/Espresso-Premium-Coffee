@@ -27,7 +27,10 @@ const roastingLinks = document.querySelectorAll(
   ".roasting-content .action-btn",
 );
 const orderNowBtn = document.querySelector(".nav-btn");
-// const aboutBadge = aboutSection.querySelector(".about-badge");
+const modalImage = document.querySelector("#modalImg");
+const modalTitle = document.querySelector("#modalTitle");
+const modalDescription = document.querySelector("#modalDescription");
+const modalPrice = document.querySelector("#modalPrice");
 
 hamburger.addEventListener("click", () => {
   navList.classList.toggle("navlist-active");
