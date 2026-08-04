@@ -15,7 +15,7 @@
     <!-- StyleSheet Link -->
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
+  <body id="#top">
     <!-- Loader -->
     <div class="loader">
       <div class="loader-inner">
@@ -39,7 +39,7 @@
     <header class="bg-green side-spacing reveal reveal-up">
       <nav>
         <div class="logo">
-          <a href="#">
+          <a href="#top">
             <img src="./assets/coffee logo.png" alt="Coffee logo" />
           </a>
         </div>
@@ -146,7 +146,10 @@
       </section>
 
       <!-- Our Coffee -->
-      <section id="products" class="working-section bg-peach side-spacing coffee-section">
+      <section
+        id="products"
+        class="working-section bg-peach side-spacing coffee-section"
+      >
         <div class="hero-content coffee-intro">
           <div class="img-part">
             <img src="./assets/coffee beans.png" alt="Coffee-Beans-Image" />
@@ -488,85 +491,97 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-peach side-spacing">
+    <!-- Footer -->
+    <footer class="footer bg-peach side-spacing">
       <div class="footer-container">
-        <div class="footer-col reveal reveal-up">
-          <h5>News Letter</h5>
-          <form class="footer-list">
+        <!-- Brand -->
+        <div class="footer-brand footer-reveal">
+          <div class="footer-logo">
+            <img src="./assets/coffee logo.png" alt="Espresso Coffee Logo" />
+          </div>
+
+          <h2>ESPRESSO</h2>
+
+          <p>
+            Crafted with passion. Served with warmth. Every cup tells a story.
+          </p>
+
+          <a href="#products" class="footer-cta">
+            Explore Coffee <span>↗</span>
+          </a>
+        </div>
+
+        <!-- Navigation -->
+        <div class="footer-col footer-reveal">
+          <h5>Explore</h5>
+
+          <ul class="footer-links">
+            <li><a href="#products">Our Coffee</a></li>
+            <li><a href="#products">Special Offers</a></li>
+            <li><a href="#">The Process</a></li>
+            <li><a href="#">Packing</a></li>
+            <li><a href="#about">About Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Services -->
+        <div class="footer-col footer-reveal">
+          <h5>Services</h5>
+
+          <ul class="footer-links">
+            <li><a href="#">Shop</a></li>
+            <li><a href="#">Order Ahead</a></li>
+            <li><a href="#">Menu</a></li>
+            <li><a href="#">Find Location</a></li>
+            <li><a href="#">Our Story</a></li>
+          </ul>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="footer-newsletter footer-reveal">
+          <h5>Stay Connected</h5>
+
+          <p>
+            Get coffee updates, special offers and fresh news straight to your
+            inbox.
+          </p>
+
+          <form class="footer-form">
             <input
               type="email"
-              id="email"
-              placeholder="Email Adress..."
+              placeholder="Your email address..."
               autocomplete="off"
+              required
             />
 
-            <input type="submit" value="Subscribe" />
+            <button type="submit">↗</button>
           </form>
-        </div>
 
-        <div class="footer-col reveal reveal-up">
-          <h5>Privacy</h5>
-          <ul class="footer-list">
-            <li>
-              <a href="#" class="links green-clr">Terms of use</a>
-            </li>
-            <li>
-              <a href="#" class="links green-clr">Privacy Policy</a>
-            </li>
-            <li>
-              <a href="#" class="links green-clr">Cookies</a>
-            </li>
-          </ul>
-        </div>
-
-        <div class="footer-col reveal reveal-up">
-          <h5>Services</h5>
-          <ul class="footer-list">
-            <li>
-              <a href="#" class="links green-clr">Shop</a>
-            </li>
-            <li>
-              <a href="#" class="links green-clr">Order Ahead</a>
-            </li>
-            <li>
-              <a href="#" class="links green-clr">Menu</a>
-            </li>
-          </ul>
-        </div>
-
-        <div class="footer-col reveal reveal-up">
-          <h5>About Us</h5>
-          <ul class="footer-list">
-            <li>
-              <a href="#" class="links green-clr">Find Location</a>
-            </li>
-            <li>
-              <a href="#" class="links green-clr">About Us</a>
-            </li>
-            <li>
-              <a href="#" class="links green-clr">Our Story</a>
-            </li>
-          </ul>
-        </div>
-
-        <div class="footer-col reveal reveal-up">
-          <h5>Social Media</h5>
-
-          <div class="social-list footer-list">
+          <div class="footer-socials">
             <a href="#" class="icons-link">
               <i class="fa-brands fa-facebook-f"></i>
             </a>
+
             <a href="#" class="icons-link">
               <i class="fa-brands fa-twitter"></i>
             </a>
+
             <a href="#" class="icons-link">
               <i class="fa-brands fa-instagram"></i>
             </a>
+
             <a href="#" class="icons-link">
               <i class="fa-brands fa-pinterest-p"></i>
             </a>
           </div>
         </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom footer-reveal">
+        <span>© 2026 Espresso Coffee. All rights reserved.</span>
+
+        <span> Crafted with ☕ & passion </span>
       </div>
     </footer>
 

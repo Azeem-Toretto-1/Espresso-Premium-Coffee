@@ -267,31 +267,27 @@ const roastingObserver = new IntersectionObserver(
 
 roastingObserver.observe(roastingContainer);
 
-//FOOTER REVEAL
-const footer = document.querySelector("footer");
-const modalImage = document.querySelector(".modal-image img");
-const modalTitle = document.querySelector(".modal-content h2");
-const modalDescription = document.querySelector(".modal-content p");
-const modalPrice = document.querySelector(".modal-bottom h3");
+// FOOTER REVEAL
+const footer = document.querySelector(".footer");
 
 const footerObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
       if (!entry.isIntersecting) return;
 
-      const footerCols = entry.target.querySelectorAll(".footer-col");
+      const footerItems = entry.target.querySelectorAll(".footer-reveal");
 
-      footerCols.forEach((col, index) => {
+      footerItems.forEach((item, index) => {
         setTimeout(() => {
-          col.classList.add("reveal-visible");
-        }, index * 180);
+          item.classList.add("footer-show");
+        }, index * 160);
       });
 
-      footerObserver.disconnect();
+      footerObserver.unobserve(entry.target);
     });
   },
   {
-    threshold: 0.25,
+    threshold: 0.2,
   },
 );
 
