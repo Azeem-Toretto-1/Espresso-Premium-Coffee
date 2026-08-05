@@ -154,6 +154,7 @@ nav {
 
 .fa-bars {
   color: var(--soft-peach);
+  background: var(--light-greenish);
   font-size: 2rem;
 }
 

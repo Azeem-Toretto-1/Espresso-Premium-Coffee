@@ -570,7 +570,7 @@ if (footer) {
 /* COFFEE DATA */
 const coffeeData = {
   Latte: {
-    image: "./assets/latte.jpg",
+    image: "./assets/latte.webp",
     title: "Latte",
     description:
       "A silky smooth espresso blended with perfectly steamed milk for a rich, creamy, and comforting coffee experience.",
@@ -578,7 +578,7 @@ const coffeeData = {
   },
 
   Mocha: {
-    image: "./assets/mocha.jpeg",
+    image: "./assets/mocha.webp",
     title: "Mocha",
     description:
       "Espresso infused with premium chocolate and steamed milk, finished with a luxurious cocoa flavor.",
@@ -586,7 +586,7 @@ const coffeeData = {
   },
 
   Affogato: {
-    image: "./assets/affogato.jpg",
+    image: "./assets/affogato.webp",
     title: "Affogato",
     description:
       "A scoop of creamy vanilla gelato topped with freshly brewed espresso for the perfect dessert coffee.",
@@ -594,7 +594,7 @@ const coffeeData = {
   },
 
   Cappuccino: {
-    image: "./assets/capuccino.jpg",
+    image: "./assets/capuccino.webp",
     title: "Cappuccino",
     description:
       "A balanced blend of espresso, steamed milk, and velvety foam delivering a timeless café favorite.",
@@ -602,7 +602,7 @@ const coffeeData = {
   },
 
   Americano: {
-    image: "./assets/americano.jpg",
+    image: "./assets/americano.webp",
     title: "Americano",
     description:
       "Bold espresso softened with hot water, creating a clean, rich, and smooth coffee with deep aroma.",
@@ -610,7 +610,7 @@ const coffeeData = {
   },
 
   "Flat White": {
-    image: "./assets/flat white.jpg",
+    image: "./assets/flat white.webp",
     title: "Flat White",
     description:
       "Velvety microfoam poured over double espresso for an incredibly smooth and rich coffee texture.",
@@ -618,7 +618,7 @@ const coffeeData = {
   },
 
   Frappe: {
-    image: "./assets/frappe.jpeg",
+    image: "./assets/frappe.webp",
     title: "Frappe",
     description:
       "An icy blended coffee drink with creamy texture, refreshing flavor, and delightful sweetness.",
@@ -626,7 +626,7 @@ const coffeeData = {
   },
 
   Cartedo: {
-    image: "./assets/cartedo.jpg",
+    image: "./assets/cartedo.webp",
     title: "Cartedo",
     description:
       "A bold espresso perfectly balanced with warm milk, delivering an intense yet smooth coffee finish.",
@@ -634,7 +634,7 @@ const coffeeData = {
   },
 
   Espresso: {
-    image: "./assets/espresso.jpeg",
+    image: "./assets/espresso.webp",
     title: "Espresso",
     description:
       "Pure premium espresso crafted from freshly roasted Arabica beans with deep aroma and rich crema.",
